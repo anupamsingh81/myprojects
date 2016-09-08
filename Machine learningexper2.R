@@ -9,7 +9,7 @@ library(OptimalCutpoints)
 describe(ichscore$outcome)
 
 
-# a utility function for % freq tables
+# a utility important function for % freq tables
 frqtab <- function(x, caption) {
   round(100*prop.table(table(x)), 1)
 }
