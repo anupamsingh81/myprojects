@@ -1,0 +1,345 @@
+Confusion Matrix and Statistics
+
+          Reference
+Prediction Hypoxia Normal
+   Hypoxia      16      0
+   Normal        6    107
+                                          
+               Accuracy : 0.9535          
+                 95% CI : (0.9015, 0.9827)
+    No Information Rate : 0.8295          
+    P-Value [Acc > NIR] : 1.853e-05       
+                                          
+                  Kappa : 0.8156          
+ Mcnemar's Test P-Value : 0.04123         
+                                          
+            Sensitivity : 0.7273          
+            Specificity : 1.0000          
+         Pos Pred Value : 1.0000          
+         Neg Pred Value : 0.9469          
+             Prevalence : 0.1705          
+         Detection Rate : 0.1240          
+   Detection Prevalence : 0.1240          
+      Balanced Accuracy : 0.8636          
+                                          
+       'Positive' Class : Hypoxia  
+
+Phillips
+
+   
+  Reference
+Prediction Hypoxia Normal
+   Hypoxia       8      0
+   Normal       14    107
+                                          
+               Accuracy : 0.8915          
+                 95% CI : (0.8246, 0.9394)
+    No Information Rate : 0.8295          
+    P-Value [Acc > NIR] : 0.034249        
+
+
+# Bland altman nonin
+
+$based.on
+[1] 129
+
+$lower.limit
+[1] -2.812839
+
+$mean.diffs
+[1] 0.4565891
+
+$upper.limit
+[1] 3.726017
+
+$lines
+lower.limit  mean.diffs upper.limit 
+ -2.8128388   0.4565891   3.7260171 
+
+$CI.lines
+lower.limit.ci.lower lower.limit.ci.upper   mean.diff.ci.lower 
+          -3.3161713           -2.3095062            0.1659900 
+  mean.diff.ci.upper upper.limit.ci.lower upper.limit.ci.upper 
+           0.7471883            3.2226845            4.2293496 
+
+$two
+[1] 1.96
+
+$critical.diff
+[1] 3.269428
+
+
+# blandAltman philips
+$based.on
+[1] 129
+
+$lower.limit
+[1] -3.516376
+
+$mean.diffs
+[1] 2.441085
+
+$upper.limit
+[1] 8.398547
+
+$lines
+lower.limit  mean.diffs upper.limit 
+  -3.516376    2.441085    8.398547 
+
+$CI.lines
+lower.limit.ci.lower lower.limit.ci.upper   mean.diff.ci.lower 
+           -4.433535            -2.599218             1.911563 
+  mean.diff.ci.upper upper.limit.ci.lower upper.limit.ci.upper 
+            2.970607             7.481388             9.315706 
+
+$two
+[1] 1.96
+
+$critical.diff
+[1] 5.957462
+
+# overall Bland Altman
+$based.on
+[1] 258
+
+$lower.limit
+[1] -3.727783
+
+$mean.diffs
+[1] 1.448837
+
+$upper.limit
+[1] 6.625457
+
+$lines
+lower.limit  mean.diffs upper.limit 
+  -3.727783    1.448837    6.625457 
+
+$CI.lines
+lower.limit.ci.lower lower.limit.ci.upper   mean.diff.ci.lower 
+           -4.288623            -3.166943             1.125036 
+  mean.diff.ci.upper upper.limit.ci.lower upper.limit.ci.upper 
+            1.772638             6.064617             7.186298 
+
+$two
+[1] 1.96
+
+$critical.diff
+[1] 5.17662
+
+# correlations and subfactors
+cor.test(study$Bias,study$Lactate)
+
+	Pearson's product-moment correlation
+
+data:  study$Bias and study$Lactate
+t = 2.6197, df = 256, p-value = 0.009326
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.04024851 0.27821445
+sample estimates:
+      cor 
+0.1615794 
+
+# MAP correlation
+cor.test(study$Bias,study$MAP)
+
+	Pearson's product-moment correlation
+
+data:  study$Bias and study$MAP
+t = 0.3683, df = 256, p-value = 0.713
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.09939148  0.14473123
+sample estimates:
+       cor 
+0.02301293 
+
+# correlation with Hb
+cor.test(study$Bias,study$Hb)
+
+	Pearson's product-moment correlation
+
+data:  study$Bias and study$Hb
+t = 1.6947, df = 256, p-value = 0.09135
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.0170159  0.2245645
+sample estimates:
+     cor 
+0.105328 
+
+# t test study,vasopressor
+
+
+Welch Two Sample t-test
+
+data:  study$Bias by study$Vasopressor
+t = 1.9619, df = 120.69, p-value = 0.05207
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -0.005445108  1.200445108
+sample estimates:
+ mean in group no mean in group yes 
+           1.5600            0.9625 
+
+# correlation test Bias and SAO2
+
+cor.test(study$Bias,study$SAO2)
+
+	Pearson's product-moment correlation
+
+data:  study$Bias and study$SAO2
+t = -4.3529, df = 256, p-value = 1.944e-05
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.3726898 -0.1450377
+sample estimates:
+       cor 
+-0.2625129 
+
+
+
+
+
+
+# ttest, perfusion
+
+t.test(study$Bias~study$Perfusion)
+
+	Welch Two Sample t-test
+
+data:  study$Bias by study$Perfusion
+t = 0.036319, df = 106.77, p-value = 0.9711
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -0.7714179  0.8002104
+sample estimates:
+ mean in group no mean in group yes 
+         1.452632          1.438235 
+
+
+Welch Two Sample t-test
+
+data:  study$Bias by study$Sepsis
+t = 0.036319, df = 106.77, p-value = 0.9711
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -0.7714179  0.8002104
+sample estimates:
+ mean in group no mean in group yes 
+         1.452632          1.438235 
+
+# stabilization time
+t.test(study$Stabilization.time~study$PulseOximeter)
+
+	Welch Two Sample t-test
+
+data:  study$Stabilization.time by study$PulseOximeter
+t = -12.993, df = 239.18, p-value < 2.2e-16
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -6.382894 -4.702222
+sample estimates:
+  mean in group Nonin mean in group Philips 
+             6.739457             12.282016 
+
+# stabilization time, MAP
+cor.test(study$Stabilization.time,study$MAP)
+
+	Pearson's product-moment correlation
+
+data:  study$Stabilization.time and study$MAP
+t = -1.7067, df = 256, p-value = 0.08909
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.22527482  0.01626793
+sample estimates:
+       cor 
+-0.1060679 
+
+# Perfusion relation with stabilization time
+Welch Two Sample t-test
+
+data:  study$Stabilization.time by study$Perfusion
+t = -6.2168, df = 97.401, p-value = 1.263e-08
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -5.275096 -2.722102
+sample estimates:
+ mean in group no mean in group yes 
+         8.456842         12.455441 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                          
+                  Kappa : 0.4866          
+ Mcnemar's Test P-Value : 0.000512        
+                                          
+            Sensitivity : 0.36364         
+            Specificity : 1.00000         
+         Pos Pred Value : 1.00000         
+         Neg Pred Value : 0.88430         
+             Prevalence : 0.17054         
+         Detection Rate : 0.06202         
+   Detection Prevalence : 0.06202         
+      Balanced Accuracy : 0.68182         
+                                          
+       'Positive' Class : Hypoxia         
+                                      
